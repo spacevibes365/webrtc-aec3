@@ -1,0 +1,32 @@
+--- a/webrtc/rtc_base/system/arch.h
++++ b/webrtc/rtc_base/system/arch.h
+@@ -93,6 +93,18 @@
+ #error Please add support for your architecture in rtc_base/system/arch.h
+ #endif
+ 
++// SwiftPM cannot pick compiler flags per architecture, so the macros that
++// upstream's build system passes on the command line for arm64 are derived
++// here from the compiler's own predefined macros.
++#if defined(__aarch64__) || defined(_M_ARM64)
++#if !defined(WEBRTC_ARCH_ARM64)
++#define WEBRTC_ARCH_ARM64
++#endif
++#if !defined(WEBRTC_HAS_NEON)
++#define WEBRTC_HAS_NEON
++#endif
++#endif
++
+ #if !(defined(WEBRTC_ARCH_LITTLE_ENDIAN) ^ defined(WEBRTC_ARCH_BIG_ENDIAN))
+ #error Define either WEBRTC_ARCH_LITTLE_ENDIAN or WEBRTC_ARCH_BIG_ENDIAN
+ #endif
+--- a/webrtc/common_audio/signal_processing/include/signal_processing_library.h
++++ b/webrtc/common_audio/signal_processing/include/signal_processing_library.h
+@@ -18,6 +18,8 @@
+ #define COMMON_AUDIO_SIGNAL_PROCESSING_INCLUDE_SIGNAL_PROCESSING_LIBRARY_H_
+ 
+ #include <string.h>
++
++#include "rtc_base/system/arch.h"
+ 
+ #include "common_audio/signal_processing/dot_product_with_scale.h"
+ 

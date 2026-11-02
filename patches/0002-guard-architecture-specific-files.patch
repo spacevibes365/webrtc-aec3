@@ -1,0 +1,120 @@
+--- a/webrtc/common_audio/fir_filter_neon.cc
++++ b/webrtc/common_audio/fir_filter_neon.cc
+@@ -1,3 +1,4 @@
++#if defined(__aarch64__) || defined(_M_ARM64)
+ /*
+  *  Copyright (c) 2014 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -71,3 +72,4 @@
+ }
+ 
+ }  // namespace webrtc
++#endif  // defined(__aarch64__) || defined(_M_ARM64)
+--- a/webrtc/common_audio/fir_filter_sse.cc
++++ b/webrtc/common_audio/fir_filter_sse.cc
+@@ -1,3 +1,4 @@
++#if defined(__x86_64__) || defined(__i386__)
+ /*
+  *  Copyright (c) 2014 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -80,3 +81,4 @@
+ }
+ 
+ }  // namespace webrtc
++#endif  // defined(__x86_64__) || defined(__i386__)
+--- a/webrtc/common_audio/resampler/sinc_resampler_neon.cc
++++ b/webrtc/common_audio/resampler/sinc_resampler_neon.cc
+@@ -1,3 +1,4 @@
++#if defined(__aarch64__) || defined(_M_ARM64)
+ /*
+  *  Copyright (c) 2013 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -46,3 +47,4 @@
+ }
+ 
+ }  // namespace webrtc
++#endif  // defined(__aarch64__) || defined(_M_ARM64)
+--- a/webrtc/common_audio/resampler/sinc_resampler_sse.cc
++++ b/webrtc/common_audio/resampler/sinc_resampler_sse.cc
+@@ -1,3 +1,4 @@
++#if defined(__x86_64__) || defined(__i386__)
+ /*
+  *  Copyright (c) 2013 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -61,3 +62,4 @@
+ }
+ 
+ }  // namespace webrtc
++#endif  // defined(__x86_64__) || defined(__i386__)
+--- a/webrtc/common_audio/signal_processing/cross_correlation_neon.c
++++ b/webrtc/common_audio/signal_processing/cross_correlation_neon.c
+@@ -1,3 +1,4 @@
++#if defined(__aarch64__) || defined(_M_ARM64)
+ /*
+  *  Copyright (c) 2014 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -86,3 +87,4 @@
+     cross_correlation++;
+   }
+ }
++#endif  // defined(__aarch64__) || defined(_M_ARM64)
+--- a/webrtc/common_audio/signal_processing/downsample_fast_neon.c
++++ b/webrtc/common_audio/signal_processing/downsample_fast_neon.c
+@@ -1,3 +1,4 @@
++#if defined(__aarch64__) || defined(_M_ARM64)
+ /*
+  *  Copyright (c) 2014 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -222,3 +223,4 @@
+ 
+   return 0;
+ }
++#endif  // defined(__aarch64__) || defined(_M_ARM64)
+--- a/webrtc/common_audio/signal_processing/min_max_operations_neon.c
++++ b/webrtc/common_audio/signal_processing/min_max_operations_neon.c
+@@ -1,3 +1,4 @@
++#if defined(__aarch64__) || defined(_M_ARM64)
+ /*
+  *  Copyright (c) 2014 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -331,3 +332,4 @@
+   *min_val = minimum;
+   *max_val = maximum;
+ }
++#endif  // defined(__aarch64__) || defined(_M_ARM64)
+--- a/webrtc/common_audio/third_party/ooura/fft_size_128/ooura_fft_neon.cc
++++ b/webrtc/common_audio/third_party/ooura/fft_size_128/ooura_fft_neon.cc
+@@ -1,3 +1,4 @@
++#if defined(__aarch64__) || defined(_M_ARM64)
+ /*
+  *  Copyright (c) 2014 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -349,3 +350,4 @@
+ #endif
+ 
+ }  // namespace webrtc
++#endif  // defined(__aarch64__) || defined(_M_ARM64)
+--- a/webrtc/common_audio/third_party/ooura/fft_size_128/ooura_fft_sse2.cc
++++ b/webrtc/common_audio/third_party/ooura/fft_size_128/ooura_fft_sse2.cc
+@@ -1,3 +1,4 @@
++#if defined(__x86_64__) || defined(__i386__)
+ /*
+  *  Copyright (c) 2011 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -437,3 +438,4 @@
+ #endif
+ 
+ }  // namespace webrtc
++#endif  // defined(__x86_64__) || defined(__i386__)
+--- a/webrtc/modules/audio_processing/aecm/aecm_core_neon.cc
++++ b/webrtc/modules/audio_processing/aecm/aecm_core_neon.cc
+@@ -1,3 +1,4 @@
++#if defined(__aarch64__) || defined(_M_ARM64)
+ /*
+  *  Copyright (c) 2012 The WebRTC project authors. All Rights Reserved.
+  *
+@@ -204,3 +205,4 @@
+ }
+ 
+ }  // namespace webrtc
++#endif  // defined(__aarch64__) || defined(_M_ARM64)
